@@ -16,11 +16,11 @@
 
     <h2>Grades</h2>
     <v-timeline>
-      <v-timeline-item>Evaluation Meeting 1</v-timeline-item>
+      <v-timeline-item>timeline item</v-timeline-item>
       <v-timeline-item class="text-right">
-        Evaluation Meeting 2
+        timeline item
       </v-timeline-item>
-      <v-timeline-item>Final Grade Calculation</v-timeline-item>
+      <v-timeline-item>timeline item</v-timeline-item>
     </v-timeline>
   </v-container>
 </template>

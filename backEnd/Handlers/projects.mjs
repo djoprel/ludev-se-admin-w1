@@ -19,6 +19,5 @@ export function projects(server) {
         var assignedFinal = assignRandomProject(results);
       }
     );
-    // res.connection.end();
   });
 }

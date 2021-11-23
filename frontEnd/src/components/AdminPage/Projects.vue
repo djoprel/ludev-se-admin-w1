@@ -25,27 +25,67 @@
           </template>
         </v-expansion-panel-header>
         <v-expansion-panel-content>
-          <v-container> <b>Client:</b> {{ project.client }} </v-container>
-          <v-container> <b>Description:</b> {{ project.descr }} </v-container>
-          <v-container>
-            <b>Number of Teams able to choose this project:</b>
-            {{ project.max_available }}
-            <v-progress-linear height="15" value="50" striped color="lime">
-              {{ project.amount_available - project.max_available }}/
-              {{ project.max_available }}
-            </v-progress-linear>
-            <v-container>
-              <v-card-actions>
-                <v-spacer></v-spacer>
-                <v-btn text color=" grey accent-4" @click="reveal = true">
-                  EDIT &ensp;
-                  <v-icon @click="next">
-                    mdi-wrench-outline
-                  </v-icon>
-                </v-btn>
-              </v-card-actions>
-            </v-container>
-          </v-container>
+            <v-form
+              ref="form"
+              v-model="valid"
+              lazy-validation
+            >
+              <v-text-field
+                :value = project.title
+                
+                :counter="100"
+                :rules="project_nameRules"
+                label="Project"
+                required
+                
+              ></v-text-field>
+
+              <v-text-field
+                :value = project.client
+                :counter="100"
+                :rules="clientRules"
+                label="Client"
+                required
+              ></v-text-field>
+
+              <v-col >
+                <v-textarea
+                  full-width = true
+                  :value = project.descr
+                  :counter="1000"
+                  :rules="descriptionRules"
+                  label="Description"
+                  required
+                ></v-textarea>
+              ></v-col>
+
+              <!-- <v-select
+                v-model="select"
+                :items="items"
+                :rules="[v => !!v || 'Item is required']"
+                label="Item"
+                required
+              ></v-select>
+
+              <v-checkbox
+                v-model="checkbox"
+                :rules="[v => !!v || 'You must agree to continue!']"
+                label="Do you agree?"
+                required
+              ></v-checkbox> -->
+
+              <v-btn
+                :disabled="!valid"
+                color="success"
+                class="mr-4"
+                @click="edit"
+              >
+                Validate
+              </v-btn>
+
+            
+            </v-form>
+          
         </v-expansion-panel-content>
       </v-expansion-panel>
     </v-expansion-panels>
@@ -81,15 +121,35 @@ export default {
       autoLineWidth: false,
       projects: [],
       reveal: false,
+      edit: true,
+      project_name: '',
+      project_nameRules: [
+        v => !!v || 'Project name is required',
+        v => (v && v.length <= 100) || 'Project name must be less than 100 characters',
+      ],
+      client: '',
+      clientRules: [
+        v => !!v || 'Client name is required',
+        v => (v && v.length <= 100) || 'Client name must be less than 100 characters',
+      ],
+      description: '',
+      descriptionRules: [
+        v=> !!v || 'Description name is required',
+        v => (v && v.length <= 1000) || 'Description must be less than 1000 characters',
+      ],
     };
   },
   methods: {
     async fetchProjects() {
       const res = await fetch("http://localhost:3001/project_page");
       const data = await res.json();
-      // console.log(data);
+      console.log(data);
       return data;
     },
+    validate () {
+      this.$refs.form.validate()
+    },
+
   },
   async created() {
     this.projects = await this.fetchProjects();

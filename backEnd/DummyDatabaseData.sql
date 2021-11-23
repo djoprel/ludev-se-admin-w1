@@ -78,6 +78,8 @@ INSERT INTO Account(username, password) VALUES('s2460153','SEww6000!');
 INSERT INTO Account(username, password) VALUES('s2460154','SEww7000!');
 INSERT INTO Account(username, password) VALUES('s2460155','SEww8000!');
 INSERT INTO Account(username, password) VALUES('s2460156','SEww9000!');
+INSERT INTO Account(username, password) VALUES('s2592991','$2b$14$H7sJFrCGwQOLAChLjczrS.XFj3sG3Jcb1D5.pSePK7zg8JbQhrcEa');
+INSERT INTO User(uid,study,initials,surname) SELECT uid,'Informatica','I.N.I','Achternaam' FROM Account WHERE username = 's2592991' and password = '$2b$14$H7sJFrCGwQOLAChLjczrS.XFj3sG3Jcb1D5.pSePK7zg8JbQhrcEa';
 
 INSERT INTO Account(username, password) VALUES('s2560147','SEww0000!');
 INSERT INTO Account(username, password) VALUES('s2560148','SEww1000!');
@@ -145,6 +147,7 @@ INSERT INTO User(uid,study,initials,surname) SELECT uid,'Informatica','I.N.I','A
 INSERT INTO User(uid,study,initials,surname) SELECT uid,'Informatica','I.N.I','Achternaam' FROM Account WHERE username = 's2460154' and password = 'SEww7000!';
 INSERT INTO User(uid,study,initials,surname) SELECT uid,'Informatica','I.N.I','Achternaam' FROM Account WHERE username = 's2460155' and password = 'SEww8000!';
 INSERT INTO User(uid,study,initials,surname) SELECT uid,'Informatica','I.N.I','Achternaam' FROM Account WHERE username = 's2460156' and password = 'SEww9000!';
+
 
 INSERT INTO User(uid,study,initials,surname) SELECT uid,'Informatica','I.N.I','Achternaam' FROM Account WHERE username = 's2560147' and password = 'SEww0000!';
 INSERT INTO User(uid,study,initials,surname) SELECT uid,'Informatica','I.N.I','Achternaam' FROM Account WHERE username = 's2560148' and password = 'SEww1000!';

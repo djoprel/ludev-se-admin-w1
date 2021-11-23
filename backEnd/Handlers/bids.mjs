@@ -17,6 +17,7 @@ export function bids(server) {
      group_concat(Bid.pid ORDER BY Bid.choice ASC)
      FROM Bid GROUP BY Bid.tid`,
       function (error, bids, fields) {
+        console.log(bids, "bids");
         if (error) throw error;
         bids = bidFormatter(bids);
         var assigned = assignProject(bids);
@@ -26,6 +27,5 @@ export function bids(server) {
         res.end(JSON.stringify(assigned));
       }
     );
-    // res.connection.end();
   });
 }

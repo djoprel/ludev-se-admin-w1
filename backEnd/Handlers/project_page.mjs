@@ -17,6 +17,5 @@ export function project_page(server) {
         console.log(results);
       }
     );
-    // res.connection.end();
   });
 }

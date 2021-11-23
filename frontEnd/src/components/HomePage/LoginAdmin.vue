@@ -23,7 +23,6 @@
       <v-btn :disabled="!valid" color="success" class="mr-4" @click="validate">
         LogIn
       </v-btn>
-      <v-btn @click="created">TEST</v-btn>
     </v-form>
   </v-row>
 </template>
@@ -56,17 +55,6 @@ export default {
     },
     resetValidation() {
       this.$refs.form.resetValidation();
-    },
-    created() {
-      // Simple POST request with a JSON body using fetch
-      const requestOptions = {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ title: "Vue POST Request Example" }),
-      };
-      fetch("https://jsonplaceholder.typicode.com/posts", requestOptions)
-        .then((response) => response.json())
-        .then((data) => (this.postId = data.id));
     },
   },
 };

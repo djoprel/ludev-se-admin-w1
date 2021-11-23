@@ -5,14 +5,18 @@
   "type": "module",
   "main": "main.js",
   "scripts": {
-    "dev": "node main.js"
+    "dev": "nodemon main.js"
   },
   "keywords": [],
   "author": "",
   "license": "UNLICENSED",
   "dependencies": {
+    "bcrypt": "^5.0.1",
+    "cookie-parser": "^1.4.5",
     "dotenv": "^10.0.0",
+    "express-session": "^1.17.2",
     "mysql2": "^2.3.2",
+    "nodemon": "^2.0.15",
     "restify": "^8.6.0"
   }
 }
