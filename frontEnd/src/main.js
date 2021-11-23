@@ -10,7 +10,14 @@ import AdminTeams from "./components/AdminPage/Teams.vue";
 import AdminGrades from "./components/AdminPage/Grades.vue";
 import AdminUsers from "./components/AdminPage/Users.vue";
 import AdminSettings from "./components/AdminPage/Settings.vue";
+<<<<<<< HEAD
+import axios from "axios";
 
+Vue.prototype.$http = axios;
+
+=======
+
+>>>>>>> 5769857346d375dca6231bc3e153d714c3dfeb93
 Vue.config.productionTip = false;
 Vue.use(VueRouter);
 

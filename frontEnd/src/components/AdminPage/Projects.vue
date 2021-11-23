@@ -87,7 +87,7 @@ export default {
     async fetchProjects() {
       const res = await fetch("http://localhost:3001/project_page");
       const data = await res.json();
-      // console.log(data);
+      console.log(data);
       return data;
     },
   },

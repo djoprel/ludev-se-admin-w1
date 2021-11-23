@@ -44,9 +44,9 @@
           </v-list-item>
 
           <v-card-actions>
-            <!-- <v-btn outlined rounded text>
+            <v-btn outlined rounded text>
               Go to team
-            </v-btn> -->
+            </v-btn>
           </v-card-actions>
         </v-card>
       </v-col>

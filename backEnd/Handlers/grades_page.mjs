@@ -17,6 +17,5 @@ export function grades_page(server) {
         console.log(results);
       }
     );
-    // res.connection.end();
   });
 }

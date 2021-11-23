@@ -17,6 +17,5 @@ export function team_page(server) {
         console.log(results);
       }
     );
-    // res.connection.end();
   });
 }
